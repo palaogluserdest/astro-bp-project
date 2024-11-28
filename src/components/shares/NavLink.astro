@@ -1,0 +1,26 @@
+---
+const pathname = Astro.url.pathname;
+const { href, className } = Astro.props;
+---
+
+<a href={href} class={`nav-link ${href === pathname ? 'active' : ''} ${className}`}>
+  <slot />
+</a>
+
+<style lang="scss">
+  @use '../../styles/shares/index' as i;
+
+.nav-link {
+  color: inherit;
+  font-family: i.$font-secondary;
+  font-size: i.$font-size-xl;
+
+  &:hover {
+    color: i.$color-primary;
+  }
+}
+
+.active {
+  color: i.$color-primary-hover;
+}
+</style>

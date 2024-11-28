@@ -1,0 +1,136 @@
+@use '../styles/shares/index' as i;
+
+// # Reset CSS Start
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: i.$font-secondary;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+// # Reset CSS End
+
+
+// # Theme Styles Start
+
+html.light {
+  @include i.theme('light');
+}
+
+html.dark {
+  @include i.theme('dark');
+}
+
+// # Theme Styles End
+
+// # Fonts Start
+
+// => Roboto Mono
+@font-face {
+  font-family: "Roboto Mono";
+  src: url("/fonts/roboto-mono/RobotoMono-Thin.ttf") format(".ttf");
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "Roboto Mono";
+  src: url("/fonts/roboto-mono/RobotoMono-ExtraLight.ttf") format(".ttf");
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: "Roboto Mono";
+  src: url("/fonts/roboto-mono/RobotoMono-Light.ttf") format(".ttf");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Roboto Mono";
+  src: url("/fonts/roboto-mono/RobotoMono-Regular.ttf") format(".ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Roboto Mono";
+  src: url("/fonts/roboto-mono/RobotoMono-Medium.ttf") format(".ttf");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Roboto Mono";
+  src: url("/fonts/roboto-mono/RobotoMono-SemiBold.ttf") format(".ttf");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Roboto Mono";
+  src: url("/fonts/roboto-mono/RobotoMono-Bold.ttf") format(".ttf");
+  font-weight: 700;
+}
+
+// => Nunito
+
+@font-face {
+  font-family: "Nunito";
+  src: url("/fonts/nunito/Nunito-ExtraLight.ttf") format(".ttf");
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("/fonts/nunito/Nunito-Light.ttf") format(".ttf");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("/fonts/nunito/Nunito-Regular.ttf") format(".ttf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("/fonts/nunito/Nunito-Medium.ttf") format(".ttf");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("/fonts/nunito/Nunito-SemiBold.ttf") format(".ttf");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("/fonts/nunito/Nunito-Bold.ttf") format(".ttf");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("/fonts/nunito/Nunito-ExtraBold.ttf") format(".ttf");
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: "Nunito";
+  src: url("/fonts/nunito/Nunito-Black.ttf") format(".ttf");
+  font-weight: 900;
+}
+
+// # Fonts End

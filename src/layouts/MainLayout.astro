@@ -1,0 +1,15 @@
+---
+import MasterLayout from './MasterLayout.astro';
+import Header from '../components/Header.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<MasterLayout>
+	<Header title="Astro Blog Project" description="Blog site" />
+	<body>
+		<Navbar client:visible />
+		<slot />
+		<Footer />
+	</body>
+	</MasterLayout>

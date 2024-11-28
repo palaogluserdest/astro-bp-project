@@ -1,0 +1,26 @@
+---
+const {className, type} = Astro.props
+---
+
+<button type={type} class={`btn ${className}`}>
+  <slot />
+</button>
+
+<style lang="scss">
+  @use '../../styles/shares/index' as i;
+
+  .btn {
+    padding: 23px 20px;
+    background-color: i.$color-primary;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &:hover {
+      background-color: i.$color-primary-hover;
+    }
+
+  }
+</style>

@@ -1,0 +1,93 @@
+---
+import NavLink from './shares/NavLink.astro'
+import Button from './shares/Button.astro'
+import { Image } from 'astro:assets'
+---
+
+
+<nav class="nav-container">
+  <a href="/" class="nav-logo">Serdest<span class="nav-sub-logo">.Blog</span></a>
+  <div class="nav-links">
+    <ul class="nav-links-items">
+      <li class="nav-links-item">
+        <NavLink href="/">Home</NavLink>
+      </li>
+      <li class="nav-links-item">
+        <NavLink href="/blog">Blog</NavLink>
+      </li>
+      <li class="nav-links-item">
+        <NavLink href="/about-us">About Me</NavLink>
+      </li>
+      <li class="nav-links-item">
+        <NavLink href="/contact-us">Touch Me</NavLink>
+      </li>
+    </ul>
+  </div>
+  <div class="nav-tip">
+    <Button className="nav-tip-btn">
+      <Image src="/icons/buy-me-a-coffee.svg" alt="Buy Me A Coffee" width={24} height={24} />
+       {' '}Buy Me A Coffee
+      </Button>
+  </div>
+</nav>
+
+
+<style lang="scss">
+@use '../styles/shares/index' as i;
+
+.nav-container {
+  max-width: 1440px;
+  width: 100%;
+  height: 86px;
+  display: flex;
+  
+  .nav-logo {
+    color: inherit;
+    flex: 2;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: i.$font-secondary;
+    font-size: i.$font-size-logo;
+    font-weight: 600;
+
+    .nav-sub-logo {
+      font-size: i.$font-size-xl;
+      font-weight: 600;
+      transform: translateY(4px);
+      color: i.$color-primary;
+    }
+  }
+
+  .nav-links {
+    flex: 3;
+
+    .nav-links-items {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+      height: 100%;
+
+      .nav-links-item {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+
+  .nav-tip {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    :global(.nav-tip-btn) {
+      padding: 12px 10px;
+    }
+  }
+}
+</style>

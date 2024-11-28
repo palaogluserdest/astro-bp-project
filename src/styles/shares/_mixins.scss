@@ -1,0 +1,14 @@
+@use './variables' as v;
+
+
+@mixin theme($theme) {
+  @if $theme =='light' {
+    background-color: v.$bg-light-color;
+    color: v.$text-light-color;
+  }
+
+  @else {
+    background-color: v.$bg-dark-color;
+    color: v.$text-dark-color;
+  }
+}

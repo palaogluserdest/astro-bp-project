@@ -1,9 +1,13 @@
 ## Yapılacaklar
 
-- [ ] Dark ve Light tema için variables.scss dosyası oluşturulacak
-- [ ] Navbar yapılacak
+- [x] Dark ve Light tema için variables.scss dosyası oluşturulacak
+- [x] Navbar yapılacak
 - [ ] Portfolio yapılacak
 - [ ] Main Section yapılacak
+  - [x] Hero Section yapılacak
+  - [ ] Skills Section yapılacak
+  - [ ] Projects Section yapılacak
+  - [ ] Featured Section yapılacak
 - [ ] Footer yapılacak
 - [ ] Card dizaynı yapılacak
 - [ ] Post page dizaynı yapılacak
@@ -13,5 +17,4 @@
 - [ ] Search page yapılacak
 - [ ] About page yapılacak
 - [ ] Contact page yapılacak
-- [ ] Skills page yapılacak
 - [ ] Productions page yapılacak (Projelerimin görselleri ve açıklamaları)

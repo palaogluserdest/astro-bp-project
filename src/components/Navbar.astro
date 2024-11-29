@@ -218,6 +218,16 @@ const navLinks = [
   const navCloseIcon = document.querySelector(".nav-close-icon") as HTMLElement;
   const mobilNavbar = document.querySelector(".mobil-navbar") as HTMLElement;
 
+  window.addEventListener("resize", () => {
+    const width = window.innerWidth;
+
+    if (width > 864) {
+      mobilNavbar.style.display = "none";
+      navHamburgerIcon.style.display = "block";
+      navCloseIcon.style.display = "none";
+    }
+  });
+
   if (navHamburgerIcon && navCloseIcon) {
     navHamburgerIcon.addEventListener("click", () => {
       mobilNavbar.style.display = "block";

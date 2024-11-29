@@ -1,93 +1,234 @@
 ---
-import NavLink from './shares/NavLink.astro'
-import Button from './shares/Button.astro'
-import { Image } from 'astro:assets'
+import NavLink from "./shares/NavLink.astro";
+import Button from "./shares/Button.astro";
+import { Image } from "astro:assets";
+
+const navLinks = [
+  { href: "/", text: "Home" },
+  { href: "/blog", text: "Blog" },
+  { href: "/about-us", text: "About Me" },
+  { href: "/contact-us", text: "Touch Me" },
+];
 ---
 
-
 <nav class="nav-container">
-  <a href="/" class="nav-logo">Serdest<span class="nav-sub-logo">.Blog</span></a>
+  <a href="/" class="nav-logo">Serdest<span class="nav-sub-logo">.Blog</span></a
+  >
   <div class="nav-links">
     <ul class="nav-links-items">
-      <li class="nav-links-item">
-        <NavLink href="/">Home</NavLink>
-      </li>
-      <li class="nav-links-item">
-        <NavLink href="/blog">Blog</NavLink>
-      </li>
-      <li class="nav-links-item">
-        <NavLink href="/about-us">About Me</NavLink>
-      </li>
-      <li class="nav-links-item">
-        <NavLink href="/contact-us">Touch Me</NavLink>
-      </li>
+      {
+        navLinks.map((link) => (
+          <li class="nav-links-item">
+            <NavLink href={link.href}>{link.text}</NavLink>
+          </li>
+        ))
+      }
     </ul>
   </div>
   <div class="nav-tip">
     <Button className="nav-tip-btn">
-      <Image src="/icons/buy-me-a-coffee.svg" alt="Buy Me A Coffee" width={24} height={24} />
-       {' '}Buy Me A Coffee
+      <Image
+        src="/icons/buy-me-a-coffee.svg"
+        alt="Buy Me A Coffee"
+        width={24}
+        height={24}
+      />
+      {" "}Buy Me A Coffee
+    </Button>
+  </div>
+  <div class="nav-mobil-icon">
+    <Image
+      src="/icons/hamburger.svg"
+      alt="Hamburger Icon"
+      width={48}
+      height={48}
+      class="nav-hamburger-icon"
+    />
+    <Image
+      src="/icons/close.svg"
+      alt="Close Icon"
+      width={48}
+      height={48}
+      class="nav-close-icon"
+      style={{ display: "none" }}
+    />
+  </div>
+  <div class="mobil-navbar">
+    <div class="mobil-nav-links">
+      <ul class="mobil-nav-links-items">
+        {
+          navLinks.map((link) => (
+            <li class="mobil-nav-links-item">
+              <NavLink href={link.href}>{link.text}</NavLink>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <div class="mobil-nav-tip">
+      <Button className="mobil-nav-tip-btn">
+        <Image
+          src="/icons/buy-me-a-coffee.svg"
+          alt="Buy Me A Coffee"
+          width={24}
+          height={24}
+        />
+        {" "}Buy Me A Coffee
       </Button>
+    </div>
   </div>
 </nav>
 
-
 <style lang="scss">
-@use '../styles/shares/index' as i;
+  @use "../styles/shares/index" as i;
 
-.nav-container {
-  max-width: 1440px;
-  width: 100%;
-  height: 86px;
-  display: flex;
-  
-  .nav-logo {
-    color: inherit;
-    flex: 2;
-    height: 100%;
+  .nav-container {
+    max-width: 1440px;
+    width: 100%;
+    height: 86px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: i.$font-secondary;
-    font-size: i.$font-size-logo;
-    font-weight: 600;
+    position: relative;
 
-    .nav-sub-logo {
-      font-size: i.$font-size-xl;
-      font-weight: 600;
-      transform: translateY(4px);
-      color: i.$color-primary;
-    }
-  }
-
-  .nav-links {
-    flex: 3;
-
-    .nav-links-items {
+    .nav-logo {
+      color: inherit;
+      flex: 2;
+      height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 50px;
-      height: 100%;
+      font-family: i.$font-secondary;
+      font-size: i.$font-size-logo;
+      font-weight: 600;
 
-      .nav-links-item {
-        height: 100%;
+      @media screen and (max-width: 864px) {
+        justify-content: flex-start;
+        margin-left: 1.5rem;
+      }
+      .nav-sub-logo {
+        font-size: i.$font-size-xl;
+        font-weight: 600;
+        transform: translateY(4px);
+        color: i.$color-primary;
+      }
+    }
+
+    .nav-links {
+      flex: 3;
+
+      @media screen and (max-width: 864px) {
+        display: none;
+      }
+
+      .nav-links-items {
         display: flex;
         justify-content: center;
         align-items: center;
+        gap: 50px;
+        height: 100%;
+
+        .nav-links-item {
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+
+    .nav-tip {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      :global(.nav-tip-btn) {
+        padding: 12px 10px;
+      }
+
+      @media screen and (max-width: 864px) {
+        display: none;
+      }
+    }
+
+    .nav-mobil-icon {
+      display: none;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+      margin-right: 1.5rem;
+      cursor: pointer;
+
+      @media screen and (max-width: 864px) {
+        display: flex;
+      }
+    }
+
+    .mobil-navbar {
+      display: none;
+      position: absolute;
+      top: 86px;
+      left: 0;
+      width: 100%;
+      height: calc(100vh - 86px);
+      background-color: i.$light-grey;
+      z-index: 1000;
+
+      @media screen and (max-width: 864px) {
+        display: none;
+      }
+
+      .mobil-nav-links {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .mobil-nav-links-items {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          margin-top: 20px;
+          padding: 0 20px;
+        }
+
+        .mobil-nav-links-item {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+
+      .mobil-nav-tip {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+
+        :global(.mobil-nav-tip-btn) {
+          padding: 12px 10px;
+        }
       }
     }
   }
-
-  .nav-tip {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    :global(.nav-tip-btn) {
-      padding: 12px 10px;
-    }
-  }
-}
 </style>
+
+<script>
+  const navHamburgerIcon = document.querySelector(
+    ".nav-hamburger-icon"
+  ) as HTMLElement;
+  const navCloseIcon = document.querySelector(".nav-close-icon") as HTMLElement;
+  const mobilNavbar = document.querySelector(".mobil-navbar") as HTMLElement;
+
+  if (navHamburgerIcon && navCloseIcon) {
+    navHamburgerIcon.addEventListener("click", () => {
+      mobilNavbar.style.display = "block";
+      navHamburgerIcon.style.display = "none";
+      navCloseIcon.style.display = "block";
+    });
+
+    navCloseIcon.addEventListener("click", () => {
+      mobilNavbar.style.display = "none";
+      navHamburgerIcon.style.display = "block";
+      navCloseIcon.style.display = "none";
+    });
+  }
+</script>

@@ -1,7 +1,11 @@
 ---
+import Header from '../components/Header.astro';
 import '../styles/global.scss';
 ---
 
 <html lang="en" class="light">
-  <slot />
+  <Header title="Astro Blog Project" description="Blog site" />
+	<body>
+    <slot />
+  </body>
 </html>

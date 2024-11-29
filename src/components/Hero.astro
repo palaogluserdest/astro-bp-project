@@ -14,16 +14,49 @@ import { Image } from "astro:assets";
       </p>
       <ul class="hero-logo-group">
         <li class="hero-logo-item">
-          <Image src="/images/html-v2.png" alt="html" width={65} height={65} />
+          <Image
+            src="/images/html-v2.png"
+            alt="html"
+            width={65}
+            height={65}
+            loading="eager"
+          />
         </li>
         <li class="hero-logo-item">
-          <Image src="/images/css-v2.png" alt="html" width={65} height={65} />
+          <Image
+            src="/images/css-v2.png"
+            alt="html"
+            width={65}
+            height={65}
+            loading="eager"
+          />
         </li>
         <li class="hero-logo-item">
-          <Image src="/images/js-v2.png" alt="html" width={65} height={65} />
+          <Image
+            src="/images/js-v2.png"
+            alt="html"
+            width={65}
+            height={65}
+            loading="eager"
+          />
         </li>
         <li class="hero-logo-item">
-          <Image src="/images/react-v2.png" alt="html" width={65} height={65} />
+          <Image
+            src="/images/ts.png"
+            alt="html"
+            width={65}
+            height={65}
+            loading="eager"
+          />
+        </li>
+        <li class="hero-logo-item">
+          <Image
+            src="/images/react-v2.png"
+            alt="html"
+            width={65}
+            height={65}
+            loading="eager"
+          />
         </li>
         <li class="hero-logo-item">
           <Image
@@ -31,6 +64,7 @@ import { Image } from "astro:assets";
             alt="html"
             width={45}
             height={45}
+            loading="eager"
           />
         </li>
         <li class="hero-logo-item">
@@ -39,6 +73,7 @@ import { Image } from "astro:assets";
             alt="html"
             width={45}
             height={45}
+            loading="eager"
           />
         </li>
       </ul>
@@ -46,9 +81,10 @@ import { Image } from "astro:assets";
     <div class="hero-right">
       <Image
         src="/images/hero-img.png"
-        alt="hero image"
+        alt="hero"
         width={434}
         height={363}
+        loading="eager"
       />
     </div>
   </div>
@@ -58,12 +94,12 @@ import { Image } from "astro:assets";
     width={48}
     height={48}
     class="bottom-arrow"
+    loading="eager"
   />
 </div>
 
 <style lang="scss">
   @use "../styles/shares/index" as i;
-
   .hero-container {
     max-width: 1440px;
     width: 100%;
@@ -86,6 +122,11 @@ import { Image } from "astro:assets";
       width: 100%;
       padding: 0 8%;
 
+      @media screen and (max-width: 864px) {
+        flex-direction: column;
+        height: calc(100vh - 86px);
+      }
+
       .hero-left {
         flex: 1;
         display: flex;
@@ -95,11 +136,21 @@ import { Image } from "astro:assets";
         width: 100%;
         height: calc(100vh - 86px);
 
+        @media screen and (max-width: 864px) {
+          height: 50%;
+          align-items: center;
+          text-align: center;
+        }
+
         .hero-title {
           font-size: i.$font-size-4xl;
           font-weight: 600;
           color: inherit;
           margin: 0;
+
+          @media screen and (max-width: 864px) {
+            font-size: clamp(i.$font-size-2xl, 5vw, i.$font-size-5xl);
+          }
         }
 
         .hero-desc {
@@ -107,6 +158,10 @@ import { Image } from "astro:assets";
           line-height: 1.7rem;
           color: i.$dark-grey;
           margin: 1rem 0;
+
+          @media screen and (max-width: 864px) {
+            font-size: clamp(i.$font-size-xxs, 5vw, i.$font-size-md);
+          }
         }
 
         .hero-logo-group {
@@ -115,6 +170,11 @@ import { Image } from "astro:assets";
           align-items: center;
           width: 100%;
           gap: 1rem;
+
+          @media screen and (max-width: 864px) {
+            justify-content: center;
+            flex-wrap: wrap;
+          }
 
           .hero-logo-item {
             display: flex;
@@ -131,6 +191,18 @@ import { Image } from "astro:assets";
         align-items: center;
         width: 100%;
         height: calc(100vh - 86px);
+
+        @media screen and (max-width: 864px) {
+          & > img {
+            transform: translateY(0);
+          }
+
+          @media screen and (max-width: 480px) {
+            & > img {
+              scale: 0.8;
+            }
+          }
+        }
       }
     }
 
@@ -138,6 +210,7 @@ import { Image } from "astro:assets";
       position: absolute;
       bottom: 5%;
       cursor: pointer;
+      animation: 0.3s ease-in-out infinite alternate heroBottomBounce;
     }
   }
 </style>

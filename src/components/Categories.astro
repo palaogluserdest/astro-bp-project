@@ -1,0 +1,94 @@
+---
+import { Image } from "astro:assets";
+import CategoryCard from "./CategoryCard";
+
+const cards: { title: string; link: string; src: string }[] = [
+  {
+    title: "HTML",
+    link: "/categories/html",
+    src: "/images/html-v2.png",
+  },
+  {
+    title: "CSS",
+    link: "/categories/css",
+    src: "/images/css-v2.png",
+  },
+  {
+    title: "JS",
+    link: "/categories/javascript",
+    src: "/images/js-v2.png",
+  },
+  {
+    title: "TS",
+    link: "/categories/typescript",
+    src: "/images/ts.png",
+  },
+  {
+    title: "React",
+    link: "/categories/react",
+    src: "/images/react-v2.png",
+  },
+  {
+    title: "Next.js",
+    link: "/categories/nextjs",
+    src: "/images/nextjs-v2.png",
+  },
+  {
+    title: "Astro",
+    link: "/categories/astrojs",
+    src: "/images/astrojs-v2.png",
+  },
+];
+---
+
+<div id="category" class="container">
+  <h2 class="category-title">Browse The Category</h2>
+  <div class="cards-group">
+    {
+      cards.map((card) => (
+        <CategoryCard client:visible title={card.title} link={card.link}>
+          <Image
+            src={card.src}
+            alt="html"
+            width={65}
+            height={65}
+            loading="lazy"
+          />
+        </CategoryCard>
+      ))
+    }
+  </div>
+</div>
+
+<style lang="scss">
+  @use "../styles/shares/index" as i;
+
+  .container {
+    max-width: 1440px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    background-color: i.$light-grey;
+    padding: 30px 0;
+    margin-bottom: 50px;
+
+    .category-title {
+      font-size: i.$font-size-2xl;
+      font-weight: 700;
+      margin-left: 30px;
+    }
+
+    .cards-group {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+  }
+</style>

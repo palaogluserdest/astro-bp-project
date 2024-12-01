@@ -222,7 +222,7 @@ import { Image } from "astro:assets";
     arrow.addEventListener("click", () => {
       const target = document.querySelector("#category");
       if (target) {
-        target.scrollIntoView({ behavior: "smooth" });
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     });
   }

@@ -1,0 +1,35 @@
+@use '../../styles/shares/index' as i;
+
+.cat-card {
+  max-width: 180px;
+  width: 100%;
+  height: clamp(280px, 40vw, 280px);
+  display: flex;
+  flex: 1 1 180px;
+  border: none;
+  border-radius: 8px;
+  padding: 50px 30px;
+  background-color: i.$white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: i.$black;
+
+  @media screen and (max-width: 480px) {
+    max-width: 240px;
+  }
+
+  &:hover {
+    background-color: i.$color-primary;
+  }
+
+  .cat-link {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 40px;
+    color: inherit;
+  }
+}

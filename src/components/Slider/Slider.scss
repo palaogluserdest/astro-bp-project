@@ -1,0 +1,23 @@
+@use '../../styles/shares/index' as i;
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: i.$black;
+
+  @media screen and (max-width: 864px) {
+    display: none;
+  }
+}
+
+.swiper-pagination-bullet {
+  background-color: i.$black;
+
+  @media screen and (max-width: 864px) {
+    display: none;
+  }
+}
+
+.swiper-pagination-bullet-active {
+  width: 1.5rem;
+  border-radius: 10px;
+}

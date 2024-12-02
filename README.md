@@ -5,7 +5,7 @@
 - [ ] Portfolio yapılacak
 - [ ] Main Section yapılacak
   - [x] Hero Section yapılacak
-  - [ ] Skills Section yapılacak
+  - [x] Categories Section yapılacak
   - [ ] Projects Section yapılacak
   - [ ] Featured Section yapılacak
 - [ ] Footer yapılacak

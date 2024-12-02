@@ -1,0 +1,61 @@
+---
+import SliderComponent from "./Slider";
+
+export type Slide = {
+  id: number;
+  title: string;
+  image: string;
+  link: string;
+};
+
+const slides: Slide[] = [
+  {
+    id: 1,
+    title: "Slide 1",
+    image: "/images/weather-app.png",
+    link: "https://gsp-weather.netlify.app/",
+  },
+  {
+    id: 2,
+    title: "Slide 2",
+    image: "/images/medium-clone.png",
+    link: "https://medium-clone-p2.netlify.app",
+  },
+  {
+    id: 3,
+    title: "Slide 3",
+    image: "/images/weather-app.png",
+    link: "https://gsp-weather.netlify.app/",
+  },
+];
+---
+
+<div class="slider-container">
+  <h2 class="slider-title">Browse My Projects</h2>
+  <div class="slider-wrapper">
+    <SliderComponent data={slides} client:visible />
+  </div>
+</div>
+
+<style lang="scss">
+  .slider-container {
+    width: 100%;
+    height: clamp(500px, 50vh, 800px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+
+    .slider-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-left: 30px;
+    }
+
+    .slider-wrapper {
+      width: 100%;
+      height: clamp(300px, 50vh, 600px);
+    }
+  }
+</style>

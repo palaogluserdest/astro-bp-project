@@ -6,8 +6,7 @@
 - [ ] Main Section yapılacak
   - [x] Hero Section yapılacak
   - [x] Categories Section yapılacak
-  - [ ] Projects Section yapılacak
-  - [ ] Featured Section yapılacak
+  - [x] Projects Section yapılacak
 - [ ] Footer yapılacak
 - [ ] Card dizaynı yapılacak
 - [ ] Post page dizaynı yapılacak
